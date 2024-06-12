@@ -23,7 +23,28 @@ class EventController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $user = Auth::user();
+
+        if ($user->is_admin == 0) {
+            return response()->json(['message' => 'Unauthorized'], 401);
+        }
+
+        $validator = Validator::make($request->all(), [
+            'title' => 'required|string',
+            'description' => 'string',
+            'start_date' => 'date',
+            'end_date' => 'date',
+            'latitude' => 'required|numeric',
+            'longitude' => 'required|numeric',
+            'radius' => 'required|numeric',
+        ]);
+
+        if ($validator->fails()) {
+            return response()->json([$validator->errors(), 422]);
+        }
+
+        $event = Event::create($validator->validated());
+        return response()->json(['event' => $event], 201);
     }
 
     /**
@@ -47,7 +68,14 @@ class EventController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $user = Auth::user();
+
+        if ($user->is_admin == 0) {
+            return response()->json(['message' => 'Unauthorized'], 401);
+        }
+
+        Event::destroy($id);
+        return response()->json(['message' => 'Event deleted successfully'], 200);
     }
 
     /**
