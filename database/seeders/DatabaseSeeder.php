@@ -2,10 +2,8 @@
 
 namespace Database\Seeders;
 
-use App\Models\User;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
-use Illuminate\Support\Facades\Hash;
 
 class DatabaseSeeder extends Seeder
 {
@@ -16,15 +14,10 @@ class DatabaseSeeder extends Seeder
     {
         // Create an admin user
         $this->command->info('Creating an admin user ...');
-        User::create([
-            'first_name' => 'Admin',
-            'last_name' => 'User',
-            'username' => 'admin',
-            'is_admin' => true,
-            'email' => 'admin@example.com',
-            'password' => Hash::make('123'),
-        ]);
-        $this->command->info('Admin user created.');
-        
+        $this->call(UserSeeder::class);
+
+        // Create an event
+        $this->command->info('Creating an event ...');
+        $this->call(EventSeeder::class);
     }
 }
