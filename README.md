@@ -4,7 +4,7 @@ This is a backend server for Welcome Game.
 
 ## Requirement
 
--   PHP 8.2.XX
+-   php 8.2.XX
 -   Composer
 -   MySQL server
 
@@ -25,19 +25,25 @@ cp .env.example .env
 ```
 
 4. Skip to step 5 if you do not want use a specific user for the MySQL DB. In the `.env` file, scroll down to the `DB_...` part and enter the desired username and password.
-5. Create a key by running this command :
+5. Install the dependecies by running this command :
+
+```bash
+composer install
+```
+
+6. Create a key by running this command :
 
 ```bash
 php artisan key:generate
 ```
 
-6. Run the database migration with seeders :
+7. Run the database migration with seeders :
 
 ```bash
 php artisan migrate:fresh --seed
 ```
 
-7. Run the backend server by running the following command :
+8. Run the backend server by running the following command :
 
 ```bash
 php artisan serve
