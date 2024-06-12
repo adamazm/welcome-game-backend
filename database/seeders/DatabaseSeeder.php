@@ -20,7 +20,7 @@ class DatabaseSeeder extends Seeder
             'first_name' => 'Admin',
             'last_name' => 'User',
             'username' => 'admin',
-            'is_admin' => true, // Add 'is_admin' to the fillable array
+            'is_admin' => true,
             'email' => 'admin@example.com',
             'password' => Hash::make('123'),
         ]);
