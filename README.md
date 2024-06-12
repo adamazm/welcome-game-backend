@@ -5,10 +5,10 @@ This is a backend server for Welcome Game.
 ## Requirement
 
 -   php 8.2.XX
--   composer
+-   Composer
 -   MySQL server
 
-If you a web development stack already, you can use its php, for example adding `C:/xampp/php` in your PATH environment.
+If you already have a web development stack, you can use its `php` (and its `composer`), for example adding `C:/xampp/php` in your PATH environment.
 
 Tutorial to add `C:/xampp/php` in PATH on Windows:
 
