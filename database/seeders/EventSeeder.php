@@ -15,14 +15,23 @@ class EventSeeder extends Seeder
     public function run(): void
     {
         Event::create([
-            'title' => 'Example Event',
+            'title' => 'Example Event 1',
             'description' => 'Description of event',
             'start_date' => '2024-06-12 21:03:07',
             'end_date' => '2024-06-12 21:03:07',
-            'latitude' => 57.633,
+            'latitude' => 47.635,
             'longitude' => 6.847,
-            'radius' => 300,
-            'nb_participants' => 10,
+            'radius' => 30,
+            'event_status' => EventStatus::NOT_STARTED,
+        ]);
+        Event::create([
+            'title' => 'Example Event 2',
+            'description' => 'Description of event',
+            'start_date' => '2024-06-12 21:03:07',
+            'end_date' => '2024-06-12 21:03:07',
+            'latitude' => 47.634,
+            'longitude' => 6.848,
+            'radius' => 30,
             'event_status' => EventStatus::NOT_STARTED,
         ]);
     }

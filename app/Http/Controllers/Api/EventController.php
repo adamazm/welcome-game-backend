@@ -53,7 +53,8 @@ class EventController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $event = Event::find($id);
+        return response()->json(['event' => $event], 200);
     }
 
     /**
