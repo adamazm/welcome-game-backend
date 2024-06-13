@@ -17,6 +17,7 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::post('/logout', [AuthController::class, 'logout']);
     Route::post('/event/{id}/join', [EventController::class, 'joinEvent']);
     Route::post('/event/{id}/unjoin', [EventController::class, 'unjoinEvent']);
+    Route::get('/event', [EventController::class, 'index']);
     Route::post('/event', [EventController::class, 'store']);
     Route::delete('/event/{id}', [EventController::class, 'destroy']);
 
