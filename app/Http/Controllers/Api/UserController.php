@@ -51,6 +51,11 @@ class UserController extends Controller
         //
     }
 
+    /**
+     * Get all events with join status for a user
+     * @param string $id
+     * @return \Illuminate\Http\JsonResponse
+     */
     public function events(string $id)
     {
         $user = User::find($id);

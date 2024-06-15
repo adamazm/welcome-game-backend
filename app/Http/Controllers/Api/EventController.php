@@ -12,6 +12,7 @@ class EventController extends Controller
 {
     /**
      * Display a listing of the resource.
+     * @return \Illuminate\Http\JsonResponse
      */
     public function index()
     {
@@ -21,6 +22,15 @@ class EventController extends Controller
 
     /**
      * Store a newly created resource in storage.
+     * @param Request $request
+     * => @param string $request->title
+     * => @param string $request->description
+     * => @param string $request->start_date
+     * => @param string $request->end_date
+     * => @param string $request->latitude
+     * => @param string $request->longitude
+     * => @param string $request->radius
+     * @return \Illuminate\Http\JsonResponse
      */
     public function store(Request $request)
     {
@@ -50,6 +60,8 @@ class EventController extends Controller
 
     /**
      * Display the specified resource.
+     * @param string $id
+     * @return \Illuminate\Http\JsonResponse
      */
     public function show(string $id)
     {
@@ -67,6 +79,8 @@ class EventController extends Controller
 
     /**
      * Remove the specified resource from storage.
+     * @param string $id
+     * @return \Illuminate\Http\JsonResponse
      */
     public function destroy(string $id)
     {
@@ -82,6 +96,9 @@ class EventController extends Controller
 
     /**
      * Join the specified event.
+     * @param Request $request
+     * => @param string $request->user_id
+     * @return \Illuminate\Http\JsonResponse
      */
     public function joinEvent(Request $request, string $id)
     {
@@ -111,6 +128,9 @@ class EventController extends Controller
 
     /**
      * Unjoin the specified event.
+     * @param Request $request
+     * => @param string $request->user_id
+     * @return \Illuminate\Http\JsonResponse
      */
     public function unjoinEvent(Request $request, string $id)
     {

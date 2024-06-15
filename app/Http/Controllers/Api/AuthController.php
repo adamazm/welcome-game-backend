@@ -11,6 +11,18 @@ use Illuminate\Support\Facades\Validator;
 
 class AuthController extends Controller
 {
+    /**
+     * Register a new user
+     * @param Request $request
+     * => @param string $request->first_name
+     * => @param string $request->last_name
+     * => @param string $request->username
+     * => @param string $request->phone
+     * => @param string $request->email
+     * => @param string $request->password
+     * => @param string $request->password_confirmation
+     * @return \Illuminate\Http\JsonResponse
+     */
     public function register(Request $request)
     {
         $validator = Validator::make($request->all(), [
@@ -44,6 +56,13 @@ class AuthController extends Controller
         ]);
     }
 
+    /**
+     * Login a user
+     * @param Request $request
+     * => @param string $request->login
+     * => @param string $request->password
+     * @return \Illuminate\Http\JsonResponse
+     */
     public function login(Request $request)
     {
         $validator = Validator::make($request->all(), [
@@ -74,6 +93,11 @@ class AuthController extends Controller
         ]);
     }
 
+    /**
+     * Logout a user
+     * @param Request $request
+     * @return \Illuminate\Http\JsonResponse
+     */
     public function logout(Request $request)
     {
         $request->user()->currentAccessToken()->delete();
