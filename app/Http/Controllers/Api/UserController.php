@@ -54,8 +54,15 @@ class UserController extends Controller
     public function events(string $id)
     {
         $user = User::find($id);
-        $events = $user->events;
-        return response()->json(['events' => $events]);
+        
+        $allEvents = Event::all();
+        $joinedEvents = $user->events()->pluck('events.id')->toArray();
+        $eventsWithJoinStatus = $allEvents->map(function ($event) use ($joinedEvents) {
+            $event->joined = in_array($event->id, $joinedEvents);
+            return $event;
+        });
+
+        return response()->json(['events' => $eventsWithJoinStatus]);
     }
 
 }
