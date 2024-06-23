@@ -4,7 +4,7 @@ This is a backend server for Welcome Game.
 
 ## Requirement
 
--   php 8.X
+-   php 8.2.XX
 -   Composer
 -   MySQL server
 
